@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techsolution Guarulhos | Especialistas em Hardware e TI</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Cores da Identidade Visual */
+            --primary-color: #002654; /* Azul Marinho Escuro */
+            --accent-color: #ce1126;  /* Vermelho Vibrante */
+            --secondary-color: #212529;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: #ffffff;
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilos do Logo em Texto (Fallback) */
+        .brand-text {
+            line-height: 1;
+        }
+        .brand-title {
+            font-weight: 900;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+        .brand-tech { color: var(--accent-color); }
+        .brand-solution { color: var(--primary-color); }
+        .brand-subtitle {
+            font-size: 0.65rem;
+            color: #555;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin-left: 15px;
+            color: var(--primary-color) !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Botões */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: #001835;
+            border-color: #001835;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-accent:hover {
+            background-color: #a30e1e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 38, 84, 0.9), rgba(0, 38, 84, 0.8)), url('https://images.unsplash.com/photo-1597852074816-d933c72c6cf8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 76px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero .badge-year {
+            background-color: var(--accent-color);
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Services Cards */
+        .service-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            padding: 30px 20px;
+            text-align: center;
+            background: white;
+            border-bottom: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            background: rgba(206, 17, 38, 0.08);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .card-badge.b2b {
+            background-color: #28a745; /* Verde para diferenciar B2B */
+        }
+
+        /* Section Headers */
+        .section-subtitle {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .tech-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: start;
+        }
+        .tech-list i {
+            color: var(--accent-color);
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1d20;
+            color: #adb5bd;
+            padding: 60px 0 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0; min-height: auto; margin-top: 70px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- LÓGICA DO LOGO -->
+                <img src="logo.jpg" alt="TechSolution Logo" height="65" class="d-inline-block me-2" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+                
+                <!-- Fallback Visual -->
+                <div id="fallback-logo" class="brand-text" style="display:none;">
+                    <div class="brand-title">
+                        <span class="brand-tech">TECH</span> <span class="brand-solution">SOLUTION</span>
+                    </div>
+                    <span class="brand-subtitle">Soluções em Tecnologia</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#b2b">Para Empresas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-accent rounded-pill px-4 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>Orçamento
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <span class="badge-year">Desde 2020 em Guarulhos</span>
+                    <h1 class="display-4 mb-3">Não descarte seu equipamento. <span style="color: #4dabf7;">Nós recuperamos.</span></h1>
+                    <p class="lead mb-4" style="font-weight: 300; opacity: 0.9;">
+                        Especialistas em <strong>reparo avançado de placas</strong>. Enquanto outros condenam, nós consertamos no nível do componente, economizando seu dinheiro.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#services" class="btn btn-outline-light btn-lg rounded-pill fw-bold">Nossos Serviços</a>
+                        <a href="#gamers" class="btn btn-light btn-lg rounded-pill fw-bold text-primary">
+                            <i class="fas fa-gamepad me-2"></i>Especial PC Gamer
+                        </a>
+                    </div>
+                </div>
+                <!-- Opcional: Coluna vazia ou imagem flutuante para desktop -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (B2C Focus) -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="section-subtitle">O que fazemos por você</h6>
+                <h2 class="fw-bold" style="color: var(--primary-color);">Serviços Especializados</h2>
+                <div class="mx-auto mt-3" style="width: 60px; height: 3px; background-color: var(--accent-color);"></div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Service 1: Advanced Repair -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="card-badge">Diferencial</span>
+                        <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                        <h4 class="card-title">Reparo de Placa (Nível Avançado)</h4>
+                        <p class="text-muted small">Não trocamos apenas peças. Diagnosticamos e reparamos circuitos de notebooks e desktops, recuperando equipamentos "condenados" por outras assistências.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2: PC Gamer -->
+                <div class="col-md-6 col-lg-4" id="gamers">
+                    <div class="service-card" style="border-bottom-color: #0dcaf0;">
+                        <span class="card-badge" style="background-color: #0dcaf0; color: #000;">Referência 2024</span>
+                        <div class="service-icon" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);"><i class="fas fa-gamepad"></i></div>
+                        <h4 class="card-title">PC Gamer & High-End</h4>
+                        <p class="text-muted small">Referência na montagem de máquinas de alta performance. Focamos no equilíbrio perfeito entre desempenho extremo e economia inteligente para seu setup.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Smartphones -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4 class="card-title">Celulares</h4>
+                        <p class="text-muted small">Troca de telas, baterias e reparos internos em smartphones das principais marcas. Rapidez para você não ficar desconectado.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4: Videogames -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-gamepad"></i></div>
+                        <h4 class="card-title">Consoles e Videogames</h4>
+                        <p class="text-muted small">Manutenção preventiva, limpeza e reparo em consoles atuais (PS5, Xbox, Switch) e gerações anteriores.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5: Sales -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-shopping-bag"></i></div>
+                        <h4 class="card-title">Venda de Seminovos</h4>
+                        <p class="text-muted small">Notebooks revisados com garantia e computadores montados sob medida. Qualidade de novo com preço de oportunidade.</p>
+                    </div>
+                </div>
+
+                <!-- Service 6: Printers -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-print"></i></div>
+                        <h4 class="card-title">Impressoras</h4>
+                        <p class="text-muted small">Manutenção especializada em equipamentos de impressão. Solução para atolamentos, falhas e manutenção preventiva.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B Section (Distinct Look) -->
+    <section id="b2b" class="py-5 text-white position-relative" style="background-color: var(--primary-color);">
+        <!-- Background Pattern Overlay could go here -->
+        <div class="container position-relative z-1">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="badge bg-light text-dark mb-3 fw-bold px-3 py-2">PARA EMPRESAS</span>
+                    <h2 class="fw-bold mb-4 display-6">Soluções Corporativas que cabem no orçamento</h2>
+                    <p class="mb-4 text-light opacity-75">
+                        Sabemos que pequenas e médias empresas precisam de TI eficiente sem custos exorbitantes. Oferecemos consultoria focada em excelência e baixo custo.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-info me-3"></i> Consultoria de TI Personalizada</li>
+                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-info me-3"></i> Contratos de Manutenção Preventiva</li>
+                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-info me-3"></i> Otimização de Infraestrutura</li>
+                    </ul>
+                    <a href="https://wa.me/5511999999999?text=Tenho%20interesse%20em%20serviços%20para%20empresas" class="btn btn-light btn-lg rounded-pill fw-bold mt-3" style="color: var(--primary-color);">
+                        Falar com Consultor B2B
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <i class="fas fa-building fa-10x" style="opacity: 0.1;"></i>
+                    <!-- Aqui poderia ser uma foto de um escritório/servidor -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="why-us py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laboratório Técnico" class="img-fluid rounded shadow-lg border border-3 border-white">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h6 class="section-subtitle">Nossa História</h6>
+                    <h2 class="mb-4 fw-bold" style="color: var(--primary-color);">Quem faz a TechSolution?</h2>
+                    <p class="text-muted mb-4">
+                        Fundada em meados de 2020 em Guarulhos, a TechSolution nasceu com um propósito claro: oferecer reparo de verdade onde outros apenas trocam peças.
+                    </p>
+                    
+                    <div class="bg-light p-4 rounded mb-4 border-start border-4 border-danger">
+                        <h5 class="fw-bold mb-2 text-dark">Nosso Time</h5>
+                        <p class="mb-0 text-muted small">
+                            Contamos com consultores dedicados ao atendimento e um laboratório técnico liderado pelos especialistas <strong>Anderson e Graciele</strong>, garantindo que seu equipamento esteja nas melhores mãos.
+                        </p>
+                    </div>
+
+                    <ul class="list-unstyled tech-list">
+                        <li><i class="fas fa-check"></i> <span>Economia real através do reparo de componentes.</span></li>
+                        <li><i class="fas fa-check"></i> <span>Referência em montagem Gamer (Performance vs Custo).</span></li>
+                        <li><i class="fas fa-check"></i> <span>Consultoria honesta: só vendemos o que você precisa.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="section-subtitle">Fale Conosco</h6>
+                <h2 class="fw-bold" style="color: var(--primary-color);">Canais de Atendimento</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <h4 class="fw-bold mb-4">Informações</h4>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon d-flex justify-content-center align-items-center rounded-circle text-white me-3" style="width: 50px; height: 50px; background-color: var(--primary-color);">
+                                <i class="fas fa-map-marker-alt fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Localização</h6>
+                                <p class="text-muted mb-0 small">Guarulhos - SP</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon d-flex justify-content-center align-items-center rounded-circle text-white me-3" style="width: 50px; height: 50px; background-color: var(--accent-color);">
+                                <i class="fab fa-whatsapp fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">WhatsApp / Telefone</h6>
+                                <p class="text-muted mb-0 small">(11) 99999-9999</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon d-flex justify-content-center align-items-center rounded-circle text-white me-3" style="width: 50px; height: 50px; background-color: var(--primary-color);">
+                                <i class="fas fa-envelope fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">E-mail</h6>
+                                <p class="text-muted mb-0 small">contato@techsolution.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow p-4">
+                        <h4 class="mb-4 fw-bold" style="color: var(--primary-color);">Solicitar Orçamento</h4>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-bold">Nome</label>
+                                    <input type="text" class="form-control bg-light border-0" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-bold">Telefone</label>
+                                    <input type="tel" class="form-control bg-light border-0" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Interesse</label>
+                                <select class="form-select bg-light border-0" id="service">
+                                    <option>Reparo de Notebook/PC</option>
+                                    <option>Montagem PC Gamer</option>
+                                    <option>Soluções para Empresas (B2B)</option>
+                                    <option>Celulares/Tablets</option>
+                                    <option>Videogames</option>
+                                    <option>Compra de Seminovos</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Como podemos ajudar?</label>
+                                <textarea class="form-control bg-light border-0" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn w-100 fw-bold text-white py-2" style="background-color: var(--accent-color);">Enviar Solicitação</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-white mb-3">TechSolution</h5>
+                    <p class="small text-muted mb-3">
+                        Especialistas em tecnologia desde 2020. Focados em reparo de hardware, performance gamer e soluções inteligentes para empresas.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3 h6 fw-bold">Nossos Serviços</h5>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Reparo de Placas</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">PC Gamer Custom</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Consultoria Empresarial</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Venda de Equipamentos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3 h6 fw-bold">Horários</h5>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="d-flex justify-content-between mb-2"><span>Seg-Sex:</span> <span>09:00 - 18:00</span></li>
+                        <li class="d-flex justify-content-between"><span>Sáb:</span> <span>09:00 - 13:00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0 text-muted">&copy; 2024 TechSolution Guarulhos.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Form Alert
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Sua solicitação foi enviada! Nossos consultores entrarão em contato em breve.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
